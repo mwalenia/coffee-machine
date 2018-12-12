@@ -1,5 +1,7 @@
 package ingredients;
 
+import drinks.DrinkOption;
+import drinks.RecipeRepository;
 import ingredients.simpleIngredients.*;
 import processing.Grinder;
 import processing.MilkSteamer;
@@ -19,6 +21,7 @@ public class IngredientFacade extends IngredientProvider {
 	private final MilkSteamer steamer;
 	private final MilkWarmer warmer;
 	private final WaterHeater waterHeater;
+	private final RecipeRepository recipeRepository;
 
 	public void refillWater() {
 		storageFacade.refillWater();
@@ -54,7 +57,8 @@ public class IngredientFacade extends IngredientProvider {
 
 	@Override
 	public SimpleIngredient dispense(EspressoBase espressoBase) throws InsufficientIngredientException {
-		//TODO implement dispensing Espresso according to recipe once recipes are in
+		recipeRepository.getDrinkRecipe(DrinkOption.ESPRESSO).getIngredients()
+				.forEach(simpleIngredient -> simpleIngredient.accept(this));
 		return new EspressoBase(1);
 	}
 }
