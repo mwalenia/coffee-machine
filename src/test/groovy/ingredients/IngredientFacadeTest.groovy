@@ -1,5 +1,6 @@
 package ingredients
 
+import drinks.RecipeRepository
 import ingredients.simpleIngredients.GroundCoffee
 import ingredients.simpleIngredients.HotMilk
 import ingredients.simpleIngredients.HotWater
@@ -36,7 +37,8 @@ class IngredientFacadeTest extends Specification {
         def warmer = new MilkWarmer()
         def waterHeater = new WaterHeater()
         def storageFacade = new StorageFacade(milkContainer, coffeeBeansContainer, waterContainer)
-        ingredientFacade = new IngredientFacade(storageFacade, grinder, steamer, warmer, waterHeater)
+        def recipeRepository = new RecipeRepository()
+        ingredientFacade = new IngredientFacade(storageFacade, grinder, steamer, warmer, waterHeater, recipeRepository)
     }
 
     @Unroll
