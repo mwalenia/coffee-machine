@@ -1,3 +1,5 @@
+# Coffee machine
+
 The goal of the project is to create a coffee machine simulation.
 
 Machine will consist of three modules:
@@ -13,3 +15,27 @@ be lists of ingredients along with required quantities, e.g. 1 espresso,
 In order to allow ingredient lists to be processed efficiently, some form
 of multiple dispatch needs to be implemented - Visitor pattern seems best
 suited for the job.
+
+---
+
+## Installing
+
+To install the application run
+
+    ./gradlew install
+
+The output .jar will be in /build/libs directory
+
+## Testing
+
+To perform all the tests run
+
+    ./gradlew check
+
+### Built with:
+
+* Gradle
+* Spock
+* Lombok
+* Java 8
+
